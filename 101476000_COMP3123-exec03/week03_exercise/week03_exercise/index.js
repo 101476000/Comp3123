@@ -6,16 +6,13 @@ console.log("Lab 03 - NodeJs");
 // Define Server Port
 const port = process.env.PORT || 8081;
 
-// Create Web Server using CORE API
 const server = http.createServer((req, res) => {
-  // Only allow GET
   if (req.method !== "GET") {
     res.writeHead(405, { "Content-Type": "application/json" });
     res.end(JSON.stringify({ error: http.STATUS_CODES[405] }));
     return;
   }
 
-  // Routing
   if (req.url === "/") {
     res.writeHead(200, { "Content-Type": "text/html; charset=utf-8" });
     res.end("<h1>Welcome to Lab Exercise 03</h1>");
